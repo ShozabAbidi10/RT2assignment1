@@ -11,6 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   message_generation
+  sensor_msgs
+  actionlib
+  actionlib_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -62,14 +65,16 @@ find_package(catkin REQUIRED COMPONENTS
  )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
+ add_action_files(
+   FILES
+   Position.action
 #   Action2.action
-# )
+ )
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
+   DEPENDENCIES
+   actionlib_msgs
  )
 
 ################################################
@@ -134,6 +139,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(position_service src/position_service.cpp)
  add_executable(state_machine src/state_machine.cpp)
+ add_executable(state_machine_action src/state_machine_action.cpp)
+ add_executable(vrep_controller src/controller.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -145,6 +152,7 @@ include_directories(
 ## same as for the library above
  add_dependencies(position_service ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
  add_dependencies(state_machine ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+ add_dependencies(state_machine_action ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
  
 ## Specify libraries to link a library or executable target against
  target_link_libraries(position_service
@@ -152,6 +160,15 @@ include_directories(
  )
  
  target_link_libraries(state_machine
+   ${catkin_LIBRARIES}
+ )
+
+ target_link_libraries(state_machine_action
+   ${catkin_LIBRARIES}
+ )
+
+
+ target_link_libraries(vrep_controller
    ${catkin_LIBRARIES}
  )
 
@@ -165,7 +182,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
  catkin_install_python(PROGRAMS
-   scripts/go_to_point.py scripts/user_interface.py
+   scripts/go_to_point.py scripts/user_interface.py scripts/go_to_point_vrep.py scripts/go_to_point_action.py scripts/user_interface_action.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

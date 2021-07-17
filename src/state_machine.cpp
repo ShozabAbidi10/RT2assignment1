@@ -42,6 +42,7 @@ int main(int argc, char **argv)
    		client_p.call(p);
    		std::cout << "Position reached" << std::endl;
    	}
+   	// else will include the goal cancellation process. What will happen when goal is cancel. 
    }
    return 0;
 }
