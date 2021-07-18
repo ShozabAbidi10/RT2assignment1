@@ -8,8 +8,11 @@ This project requires both ROS1 and ROS2 to be install in the system. Please mak
 
 1. Code available in **Main** branch is a ROS1 package should be install in ROS1 workspace {ros1_ws}/src. 
 2. Code available in **ros2** branch is a ROS2 package should be install in ROS2 workspace {ros2_ws}/src.
-3. Code available in **sourcefiles** branch is a set of source files that will be required to run the project. Please install them in your /root directory. 
-4. This project requires both Gazebo and Vrep simulation environments, if they are not already installed in your system please install them by following given instructions: 
+3. Code available in **sourcefiles** branch is a set of source files that will be required to run the project. Please install them in your /root directory. Once the branch is cloned make all these files executable by running the following command for each of the bash files.
+```
+chmod +x <file_name>
+```
+5. This project requires both Gazebo and Vrep simulation environments, if they are not already installed in your system please install them by following given instructions: 
 
   **For Gazebo :** 
   
