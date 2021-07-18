@@ -37,7 +37,7 @@ This project requires both ROS1 and ROS2 to be install in the system. Please mak
      ```
      ./coppeliasim.sh 
      
-    ```
+     ```
  5. Once this is done. Next dependency that need to install is ROS1/ROS2 bridge package. Please install the package available on this repository: https://github.com/ros2/ros1_bridge 
  6. Once setup 5 is done we need to modify our .bashrc, to have the possibility of using both ROS1 and ROS2 frameworks at the same time (in different
 terminal). For that please comment all bash files lines. 
