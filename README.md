@@ -98,7 +98,6 @@ roscore &
 ```
 source ros.sh
 roslaunch rt2_assignment1 sim_vrep.launch
-
 ```
 6. Once program is loaded it will be asking user to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will not stop immediately. It will complete the last assigned target first and then stop.
 
