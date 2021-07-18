@@ -9,9 +9,9 @@ This project requires both ROS1 and ROS2 to be install in the system. Please mak
 1. Code available in **Main** branch is a ROS1 package should be install in ROS1 workspace {ros1_ws}/src. 
 2. Code available in **ros2** branch is a ROS2 package should be install in ROS2 workspace {ros2_ws}/src.
 3. Code available in **sourcefiles** branch is a set of source files that will be required to run the project. Please install them in your /root directory. 
-4. This project requires both Gazeebo and Vrep simulation environments, if they are not already installed in your system please install them by following given instructions: 
+4. This project requires both Gazebo and Vrep simulation environments, if they are not already installed in your system please install them by following given instructions: 
 
-  **For Gazeebo :** 
+  **For Gazebo :** 
   
   * Please follow the instructions available on the respository.http://gazebosim.org/tutorials?tut=install_ubuntu
   
@@ -62,9 +62,9 @@ In order to run this part please make sure you are in /root folder where you hav
 ./rt2_assignment_1a.sh
 
 ```
-After doing this you will see three terminal windows start appearing on the screen, including a Gazeebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will stop immediately. 
+After doing this you will see three terminal windows start appearing on the screen, including a Gazebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will stop immediately. 
 
-## Part 2: Using ROS/ROS2 Brigde
+## Part 2: Running Mobile Robot Simulation in Gazeboo using ROS1/ROS2 Brigde
 
 Part 2 of this project is very similar to part 1. One of the two differences is that half of this is build in ROS1 and the other half is build in ROS2. So we are using ROS1/ROS2 brigde to make these two sub-parts communicate with each other. The second difference is that in this part we are using simple server to assign the randomly generated target to the node which handling motion of the robot instead of using action server like in part 1.
 
@@ -76,7 +76,7 @@ In order to run this part please make sure you are in /root folder where you hav
 ```
 After doing this you will see four terminal windows start appearing on the screen, including a Gazeebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will not stop immediately since we are not using action server in this part. The robot will complete the last assigned target first before stopping.
 
-## Part 3: Using Vrep/CoppeliaSim Simulation
+## Part 3: Running Mobile Robot Simulation in Vrep/CoppeliaSim simulation
 
 Part 3 of the project is also very similar with the part 1. The only difference is that we are using VRep/CoppeliaSim simulation environement instead of Gazebo. To run this part please following steps. 
 
