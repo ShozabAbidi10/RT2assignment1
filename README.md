@@ -1,4 +1,4 @@
-# First Project of the Research Track 2 course (Robotics Engineering, Unige)
+# Assignment 1 of the Research Track 2 course (MSc Robotics Engineering, Unige)
 
 The following repository contains the packages and the simulation environment for controlling a mobile robot in the Gazebo and vrep simulation environments.
 
