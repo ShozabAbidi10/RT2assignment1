@@ -31,14 +31,36 @@ This project requires both ROS1 and ROS2 to be install in the system. Please mak
     ```
     catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release
     ```
+    The packages should be generated and compiled to a library now. Copy the **devel/lib/libsimExtROS.so** file in the CoppeliaSim installation folder. The plugin is now ready     to be use.
+  *  Now to launch Vep/CoppeliaSim by run following command. Make sure you are in the Vep/CoppeliaSim installation folder.
 
+     ```
+     ./coppeliasim.sh 
+     
+    ```
+ 5. Once this is done. Next dependency that need to install is ROS1/ROS2 bridge package. Please install the package available on this repository: https://github.com/ros2/ros1_bridge 
+ 6. Once setup 5 is done we need to modify our .bashrc, to have the possibility of using both ROS1 and ROS2 frameworks at the same time (in different
+terminal). For that please comment all bash files lines. 
 
+ ```
+ #source /opt/ros/noetic/setup.bash
+ #source /root/my_ros/devel/setup.bash
+ #source /opt/ros/foxy/setup.bash
+ source /usr/share/colcon_cd/function/colcon_cd.sh
+ #source /root/my_ros2/install/local_setup.bash
+ 
+ ```
+ 7. If you are successfully able to complete all the previous steps then all the dependencies have been completed in order to run the project. 
 
-## Part 1: Using Action Server
+## Part 1: Running Mobile Robot Simulation in Gazeboo using action server.
+
+In order to run the code for part 1 of this project please make sure you are in /root folder where you have already downloaded **rt2_assignment_1a.sh** bash file. Open the terminal and run the following command.
 
 ```
-roslaunch rt2_assignment1 sim.launch
+./rt2_assignment_1a.sh
+
 ```
+You will not that multiple terinal windows will start appearing on the screen. 
 
 ## Part 2: Using ROS/ROS2 Brigde
 
