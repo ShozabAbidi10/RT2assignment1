@@ -37,7 +37,6 @@ This project requires both ROS1 and ROS2 to be install in the system. Please mak
 
      ```
      ./coppeliasim.sh 
-     
      ```
  5. Once this is done. Next dependency that need to install is ROS1/ROS2 bridge package. Please install the package available on this repository: https://github.com/ros2/ros1_bridge 
  6. Once setup 5 is done we need to modify our .bashrc, to have the possibility of using both ROS1 and ROS2 frameworks at the same time (in different
@@ -48,7 +47,6 @@ terminal). For that please comment all bash files lines.
  #source /root/my_ros/devel/setup.bash
  #source /opt/ros/foxy/setup.bash
  #source /root/my_ros2/install/local_setup.bash
- 
  ```
  7. If you are successfully able to complete all the previous steps then all the dependencies have been completed in order to run the project. 
 
@@ -60,7 +58,6 @@ In order to run this part please make sure you are in /root folder where you hav
 
 ```
 ./rt2_assignment_1a.sh
-
 ```
 After doing this you will see three terminal windows start appearing on the screen, including a Gazebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will stop immediately. 
 
@@ -72,7 +69,6 @@ In order to run this part please make sure you are in /root folder where you hav
 
 ```
 ./rt2_assignment_1a.sh
-
 ```
 After doing this you will see four terminal windows start appearing on the screen, including a Gazeebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will not stop immediately since we are not using action server in this part. The robot will complete the last assigned target first before stopping.
 
@@ -94,7 +90,6 @@ roscore &
 
  ```
  ./coppeliasim.sh 
-     
  ```
 3. Wait for vrep simulation to get started. Then load the **'pioneerROS.ttt'** scene in the environment by clicking the **file/open scene..** button in the main menu. 
 4. Once the scene is loaded start the simulation by clicking on the play button in the top center. Unlike Gazebo the simulation does not automatically start in the vrep simulator. 
