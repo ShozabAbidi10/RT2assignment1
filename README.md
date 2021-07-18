@@ -6,9 +6,19 @@ The following repository contains the packages and the simulation environment fo
 
 This project requires both ROS1 and ROS2 to be install in the system. Please make sure you have both of them installed before following the instructions. There are three branches in this respository each one of them should be install in the following fashion.
 
-1. Code available in **Main** branch is a ROS1 package should be install in ROS1 workspace {ros1_ws}/src. 
-2. Code available in **ros2** branch is a ROS2 package should be install in ROS2 workspace {ros2_ws}/src.
-3. Code available in **sourcefiles** branch is a set of source files that will be required to run the project. Please install them in your /root directory. Once the branch is cloned make all these files executable by running the following command for each of the bash files.
+1. Code available in **Main** branch is a ROS1 package should be install in ROS1 workspace {ros1_ws}/src and to deploy successfully run the following command.
+```
+catkin_make
+cd devel/
+source setup.bash
+```
+3. Code available in **ros2** branch is a ROS2 package should be install in ROS2 workspace {ros2_ws}/src and to deploy successfully run the following command.
+```
+colcon build --packages-select rt2assignment_package
+cd install/
+source local_setup.bash
+```
+5. Code available in **sourcefiles** branch is a set of source files that will be required to run the project. Please install them in your /root directory. Once the branch is cloned make all these files executable by running the following command for each of the bash files.
 ```
 chmod +x <file_name>
 ```
@@ -26,11 +36,10 @@ chmod +x <file_name>
   * Please first install xsltproc [(sudo) apt-get install xsltproc] and xmlschema [pip3 install xmlschema]
   * If specific messages/services/etc need to be supported, we have to make sure to edit files located in simExtROS/meta/, prior to recompilation. So please check if the following to message type is already included or not in the simExtROS/meta/message.txt 'geometry_msgs/Twist' 'nav_msgs/Odometry'
   * In order to build the packages, navigate to the catkin_ws folder and type:
-  
     ```
     export COPPELIASIM_ROOT_DIR=~/path/to/coppeliaSim/folder
     ```
-    
+   
     ```
     catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release
     ```
