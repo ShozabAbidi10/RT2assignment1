@@ -54,6 +54,13 @@ The project in total three parts, they are not depended on each other so you ind
 
 ## Part 1: Running Mobile Robot Simulation in Gazeboo using action server.
 
+This part of the project is consist of four main nodes. 
+
+1. position_service 
+2. state_machine_action 
+3. go_to_point_action.py
+4. user_interface_action.py
+
 In order to run this part please make sure you are in /root folder where you have already downloaded **rt2_assignment_1a.sh** bash file. Open the terminal and run the following command.
 
 ```
