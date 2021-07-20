@@ -51,7 +51,7 @@ chmod +x <file_name>
      ./coppeliasim.sh 
      ```
  5. Once this is done. Next dependency that need to install is ROS1/ROS2 bridge package. Please install the package available on this repository: https://github.com/ros2/ros1_bridge 
- 6. Once setup 5 is done we need to modify our .bashrc, to have the possibility of using both ROS1 and ROS2 frameworks at the same time (in different
+ 6. Once setup 5 is done we need to modify our .bashrc file, to have the possibility of using both ROS1 and ROS2 frameworks at the same time (in different
 terminal). For that please comment all bash files lines. 
 
  ```
@@ -60,9 +60,9 @@ terminal). For that please comment all bash files lines.
  #source /opt/ros/foxy/setup.bash
  #source /root/my_ros2/install/local_setup.bash
  ```
- 7. If you are successfully able to complete all the previous steps then all the dependencies have been completed in order to run the project. 
+ 7. If you are successfully able to complete all the previous steps then all the dependencies are completed in order to run the project. 
 
-The project in total three parts, they are not depended on each other so you individually run them by following given instructions. 
+The project in total have three parts, which can individually executed by following given instructions. 
 
 ## Part 1: Running Mobile Robot Simulation in Gazeboo using action server.
 
@@ -84,9 +84,9 @@ After doing this you will see three terminal windows start appearing on the scre
 
 ## Part 2: Running Mobile Robot Simulation in Gazeboo using ROS1/ROS2 Brigde
 
-From users prespective part 2 of this project is very similar to part 1. One of the two differences is that half of this part is build in ROS1 and the other half is build in ROS2. So we are using ROS1/ROS2 brigde to make these two sub-parts communicate with each other. The second difference is that in this part we are using a simple server to request randomly generated goal coordinates to 'go_to_point' node instead of using action server like in part 1. Therefore unlike in part 1 robot do not immediately stop when we request to canncel the goal. 
+From users prespective part 2 of this project is very similar to part 1. One of the two differences are mainly architecture based. First main difference is that half of this part is build in ROS1 and the other half is build in ROS2. So we are using ROS1/ROS2 brigde to make these two sub-parts communicate with each other. The second difference is that in this part we are using a simple server to provide randomly generated goal coordinates to 'go_to_point' node instead of using action server like in part 1. Therefore unlike in part 1 robot will not immediately stop when we request to canncel the goal but after finishing the current goal. 
 
-In ROS2 sub-part we have developed 'state_machine' and 'position_service' node as components, and by using the bridge, they are interface with the ROS1 nodes ('user_interface.py' and 'go_to_point.py') and also with the simulation in Gazebo.
+In ROS2 sub-part we have developed 'state_machine' and 'position_service' node as components, and by using the bridge, they are interface with the ROS1 nodes which is 'user_interface.py' and 'go_to_point.py' and also with the simulation in Gazebo.
 
 In order to run this part please make sure you are in /root folder where you have already downloaded **rt2_assignment_1b.sh** bash file. Open the terminal and run the following command.
 
