@@ -1,10 +1,10 @@
 # Assignment 1 of the Research Track 2 course (MSc Robotics Engineering, Unige)
 
-The following repository contains the packages and the simulation environment for controlling a mobile robot in the Gazebo and vrep simulation environments.
+The following repository contains the packages and the simulation environment for controlling a mobile robot in the Gazebo and Vrep simulator.
 
 ## Project Installation:
 
-This project requires both ROS1 and ROS2 to be install in the system. Please make sure you have both of them installed before following the instructions. There are three branches in this respository each one of them should be install in the following fashion.
+This project requires both ROS1 and ROS2 to be install in the system. Please make sure you have both of them installed before following the instructions. There are three branches in this respository and each one of them should be install in the following fashion.
 
 1. Code available in **Main** branch is a ROS1 package should be install in ROS1 workspace {ros1_ws}/src and to deploy successfully run the following command.
 ```
@@ -66,12 +66,14 @@ The project in total three parts, they are not depended on each other so you ind
 
 ## Part 1: Running Mobile Robot Simulation in Gazeboo using action server.
 
-This part of the project is consist of four main nodes. 
+Part1 of the project is consist of four main nodes. 
 
 1. position_service 
 2. state_machine_action 
 3. go_to_point_action.py
 4. user_interface_action.py
+
+'user_interface_action' node communicates with the user and as per the provided commands, instruct the system to behave accordingly. If the user press 1 in the terminal, it request '/user interface' service which is host by 'state_machine_action.py' node. Letting the node know that user have request for mobile robot to move. Therefore, upon receiving the service request from 'user interface' node it request another service '/position server' which is hosted by 'position service' node to randomly generate goal coordinates for the robot to follow. Once it receives the goal coordinates in response to the earlier request to '/position service' service, it pass these goal coordinates to an action service "/go_to_point" which is host by 'go_to_point_action.py' node. Once ‘go_to_point_action.py’ node receives the goal coordinate it start computing required linear and angular velocity values for robot to reach that point and meanwhile start publishing it on ‘cmd_vel’ topic which subscribed by Gazeebo. Since ‘/go_to_point’ is an action service therefore the user has the option to request cancelling the goal at any point during the execution. And for this purpose the ‘user interface’ node ask the user to press 0 in order to cancel the goal. 
 
 In order to run this part please make sure you are in /root folder where you have already downloaded **rt2_assignment_1a.sh** bash file. Open the terminal and run the following command.
 
@@ -82,7 +84,9 @@ After doing this you will see three terminal windows start appearing on the scre
 
 ## Part 2: Running Mobile Robot Simulation in Gazeboo using ROS1/ROS2 Brigde
 
-Part 2 of this project is very similar to part 1. One of the two differences is that half of this is build in ROS1 and the other half is build in ROS2. So we are using ROS1/ROS2 brigde to make these two sub-parts communicate with each other. The second difference is that in this part we are using simple server to assign the randomly generated target to the node which handling motion of the robot instead of using action server like in part 1.
+From users prespective part 2 of this project is very similar to part 1. One of the two differences is that half of this part is build in ROS1 and the other half is build in ROS2. So we are using ROS1/ROS2 brigde to make these two sub-parts communicate with each other. The second difference is that in this part we are using a simple server to request randomly generated goal coordinates to 'go_to_point' node instead of using action server like in part 1. Therefore unlike in part 1 robot do not immediately stop when we request to canncel the goal. 
+
+In ROS2 sub-part we have developed 'state_machine' and 'position_service' node as components, and by using the bridge, they are interface with the ROS1 nodes ('user_interface.py' and 'go_to_point.py') and also with the simulation in Gazebo.
 
 In order to run this part please make sure you are in /root folder where you have already downloaded **rt2_assignment_1b.sh** bash file. Open the terminal and run the following command.
 
@@ -93,7 +97,10 @@ After doing this you will see four terminal windows start appearing on the scree
 
 ## Part 3: Running Mobile Robot Simulation in Vrep/CoppeliaSim simulation
 
-Part 3 of the project is also very similar with the part 1. The only difference is that we are using VRep/CoppeliaSim simulation environement instead of Gazebo. To run this part please following steps. 
+Part 3 of the project is also very similar with the part 1. The only difference is that we are using VRep/CoppeliaSim simulation environement instead of Gazebo. To create a communication channel between the vrep scene and 'go_to_point_vrep.py' node a subscriber and a publisher has been develop. The publisher publishes the robot current odometry data in '/odom' topic which 'go_to_point_vrep.py' node subscribes and use it as a feedback to check how far the robot is from the goal and based on that compute new velocity commands and publishes it in the '\cmd_vel' topic.
+
+
+To run this part please following steps. 
 
 
 1. Now make sure you are in /root folder where **'ros.sh'** is downloaded. open the terminal and run the following commands.
