@@ -78,7 +78,7 @@ Part1 of the project is consist of four main nodes.
 In order to run this part please make sure you are in /root folder where you have already downloaded **rt2_assignment_1a.sh** bash file. Open the terminal and run the following command.
 
 ```
-./rt2_assignment_1a.sh
+./rt2_assignment_1b.sh
 ```
 After doing this you will see three terminal windows start appearing on the screen, including a Gazebo simulation with a mobile robot in it. Wait for the system load all the files. Find the terminal window with title **user_interface** which will be asking to press 1. Upon pressing 1, the mobile robot will start moving towards the randomly generated goal target. And if during the execution of this goal if you press 0 the robot will stop immediately. 
 
